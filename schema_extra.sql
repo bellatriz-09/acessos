@@ -1,7 +1,5 @@
 USE ecommerce;
 
--- tabela de colaboradores da loja (não confundir com cliente, vendedor
--- ou fornecedor, que já existiam no projeto lógico)
 CREATE TABLE funcionario (
     id_funcionario  INT AUTO_INCREMENT PRIMARY KEY,
     nome            VARCHAR(150) NOT NULL,
@@ -10,7 +8,6 @@ CREATE TABLE funcionario (
     data_admissao   DATE NOT NULL DEFAULT (CURRENT_DATE)
 );
 
--- fica registrado sempre que o salário base de alguém mudar
 CREATE TABLE salario_historico (
     id_historico        INT AUTO_INCREMENT PRIMARY KEY,
     id_funcionario      INT NOT NULL,
@@ -20,8 +17,6 @@ CREATE TABLE salario_historico (
     FOREIGN KEY (id_funcionario) REFERENCES funcionario(id_funcionario)
 );
 
--- guarda os dados do cliente quando ele decide excluir a conta,
--- pra não perder o histórico
 CREATE TABLE cliente_excluido (
     id_cliente      INT NOT NULL,
     nome            VARCHAR(150),
