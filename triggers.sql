@@ -2,8 +2,6 @@ USE ecommerce;
 
 DELIMITER $$
 
--- quando um cliente exclui a conta, guarda os dados dele antes
--- de a linha sumir de verdade da tabela cliente
 CREATE TRIGGER trg_cliente_before_delete
 BEFORE DELETE ON cliente
 FOR EACH ROW
@@ -12,8 +10,6 @@ BEGIN
     VALUES (OLD.id_cliente, OLD.nome, OLD.email, OLD.telefone, OLD.cpf, OLD.cnpj);
 END$$
 
--- toda vez que o salário base de um funcionário mudar, registra
--- o valor antigo e o novo no histórico
 CREATE TRIGGER trg_funcionario_before_update
 BEFORE UPDATE ON funcionario
 FOR EACH ROW
