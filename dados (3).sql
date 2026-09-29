@@ -1,6 +1,5 @@
 USE company;
 
--- james borg é o "dono" da empresa, sem chefe acima dele
 INSERT INTO employee (fname, minit, lname, ssn, bdate, address, sex, salary, super_ssn, dno) VALUES
 ('James',    'E', 'Borg',     '111111111', '1965-11-10', 'Belém-PA',    'M', 55000, NULL,        1),
 ('Jennifer', 'S', 'Wallace',  '222222222', '1978-06-20', 'Santarém-PA', 'F', 43000, '111111111', 4),
@@ -14,8 +13,6 @@ INSERT INTO department (dname, dnumber, mgr_ssn, mgr_start_date) VALUES
 ('Administração',  4, '222222222', '2021-03-01'),
 ('Pesquisa',       5, '333333333', '2019-06-15');
 
--- pesquisa tem duas localidades de propósito, pra ver o que acontece
--- na view de empregados por departamento/localidade
 INSERT INTO dept_locations (dnumber, dlocation) VALUES
 (1, 'Belém'),
 (4, 'Santarém'),
