@@ -1,6 +1,3 @@
--- esquema da empresa (o clássico employee/department/project que a gente viu
--- no módulo de DDL). criando na ordem certa pra não dar erro de FK
-
 CREATE DATABASE IF NOT EXISTS company;
 USE company;
 
@@ -25,7 +22,6 @@ CREATE TABLE department (
     FOREIGN KEY (mgr_ssn) REFERENCES employee(ssn)
 );
 
--- só depois que department existe dá pra fechar as FKs que faltaram no employee
 ALTER TABLE employee ADD FOREIGN KEY (dno) REFERENCES department(dnumber);
 ALTER TABLE employee ADD FOREIGN KEY (super_ssn) REFERENCES employee(ssn);
 
